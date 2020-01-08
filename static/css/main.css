@@ -1,0 +1,64 @@
+body{
+    background-image: url("https://otilloswimrun.com/wp-content/uploads/2016/01/raceImg-OTILLO-Main-OTILLO15.jpg");
+    background-position: center;
+}
+.headliner{
+    height: 90px;
+    /*position: absolute top;*/
+    background-color: rgba(0,0,0,0.8);
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+    color: aliceblue;
+}
+.wrap {
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #FFF;
+    margin-top: 100px;
+}
+h2{
+    text-align: center;
+}
+input[type=text], input[type=password], input[type=number]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted wheat;
+    border-radius: 7px;
+    margin: 3px;
+    font-weight: bold;
+    color: #FFF;
+}
+input[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    background: #60adde;
+    opacity: 0.7;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #FFF;
+}
+.contest{
+    width: 30%;
+}
+.btn{
+    width: 100%;
+    padding: 12px 5px;
+    margin-top: 10px;
+    border-radius: 7px;
+    background-color: steelblue;
+    font-weight: bolder;
+}

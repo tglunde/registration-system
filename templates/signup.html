@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    </head>
+
+    <body>
+        <div class="headliner">
+            <h1>SWIM & RUN</h1>
+        </div>
+        <div class="wrap">
+            <h2>Sign Up</h2>
+            <form method="POST">
+                <input type="radio" name="gender" value="Female" required/>Female
+                <input type="radio" name="gender" value="Male" required/>Male
+                <input type="text" name="firstname" placeholder="First name" required/>
+                <input type="text" name="lastname" placeholder="Last name" required/>
+                <input type="number" name="yob" placeholder="Year of birth" required/>
+                <input type="text" name="email" placeholder="Email" required/>
+                <input type="text" name="nationality" placeholder="Nationality" required/>
+                <input type="text" name="telephone" placeholder="Telephone" required/>
+                <input type="text" name="zipcode" placeholder="ZIP Code" required/>
+                <input type="text" name="street" placeholder="Street" required/>
+                <input type="text" name="city" placeholder="City" required/>
+                <input type="text" name="country" placeholder="Country" required/>
+                <input type="text" name="club" placeholder="Club"/>
+                <h3>Contest:</h3>
+                <input type="radio" class="contest" name="contest" value="Sprint swimrun" required/>Sprint swimrun
+                <input type="radio" class="contest" name="contest" value="Urban swimrun" required/>Urban swimrun
+                <input type="radio" class="contest" name="contest" value="Sprint team swimrun" required/>Sprint swimrun team
+                <input type="radio" class="contest" name="contest" value="Urban team swimrun" required/>Urban swimrun team
+                <input type="submit" value="Submit">
+            </form>
+        </div>    
+    </body>
+</html>
