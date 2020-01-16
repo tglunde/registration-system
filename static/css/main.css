@@ -75,3 +75,28 @@ input[type=submit]{
     border: none;
 
 }
+.table-wrap {
+    max-width: 500px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #FFF;
+    margin-top: 100px;
+}
+table{
+    width: 100%;
+    /*border-spacing: 5px;*/
+}
+th{
+    text-align: left;
+}
+table, th, td{
+    border: 2px solid wheat;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td{
+    padding: 10px 0px;
+}

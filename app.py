@@ -54,10 +54,17 @@ def register():
             db.session.add(new_contestant)
             db.session.commit()
         else:
-            return '<h3>Email is invalid</h3>'
+            return '''<h1 style="text-align: center;">Email is invalid</h1>
+                      <script>window.setTimeout(function(){window.history.back();}, 3000);</script>'''
 
-        return redirect(url_for("index"))
+        return redirect(url_for("send_email"))
     return render_template("signup.html")
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def list_all():
+    query = db.session.query_property()
+    contestants = Contestant.query.filter_by(active=True).all()
+    return render_template("dashboard.html", contestants=contestants)
 
 @app.route('/confirm_email/<token>')
 def confirm_email(token):
@@ -65,8 +72,19 @@ def confirm_email(token):
         email = s.loads(token, salt='email-confirm', max_age=79200)
     except SignatureExpired:
         return '<h1>Confirmation time has expired</h1>'
-    
-    return '<h1>Registration confirmed successfully!</h1>'
+    update = Contestant.query.filter_by(confirmation=token).first()
+    update.active = True
+    db.session.commit()
+    return redirect(url_for("confirmation"))
+
+@app.route('/confirmation')
+def confirmation():
+    return render_template("confirmation.html")
+
+@app.route('/email_sent')
+def send_email():
+    return render_template("email_sent.html")
+
 
 if __name__ == "__main__":
     db.create_all()

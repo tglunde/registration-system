@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <meta charset="utf-8">
+    <title>Contestants</title>
+</head>
+<body>
+    <div class="headliner">
+        <button class="home-btn" onclick="window.location.href = '/';">Home</button>
+        <h1>SWIM & RUN</h1>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <caption><h1>Contestants</h1></caption>
+            <tr>
+                <th>Last name</th>
+                <th>First name</th>
+                <th>Contest</th>
+            </tr>
+            {% for row in contestants %}
+            <tr>
+                <td>{{row.last_name}}</td>
+                <td>{{row.first_name}}</td>
+                <td>{{row.contest}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</body>
+</html>
