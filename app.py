@@ -38,14 +38,14 @@ def register():
     if request.method == 'POST':
         email = request.form['email']
         token = s.dumps(email, salt='email-confirm')
-        validation = validate_email(email, verify=True)
+        validation = validate_email(email, check_mx=True, debug=True)
         
         new_contestant = Contestant(first_name = request.form['firstname'], last_name = request.form['lastname'], 
         email = request.form['email'], telephone = request.form['telephone'],
         year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
         gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
 
-        msg = Message('Email confirmation', sender='kretko1994@gmail.com', recipients=[email])
+        msg = Message('Email confirmation', sender='', recipients=[email])
         link = url_for('confirm_email', token=token, _external=True)
         msg.body = 'Please confirm your registration on this link: {}'.format(link)
 
