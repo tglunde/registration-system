@@ -3,20 +3,20 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <meta charset="utf-8">
-    <title>Contestants</title>
+    <title>Teilnehmer</title>
 </head>
 <body>
     <div class="headliner">
-        <button class="home-btn" onclick="window.location.href = '/';">Home</button>
-        <h1>SWIM & RUN</h1>
+        <button class="home-btn" onclick="window.location.href = '/';">Startseite</button>
+        <h1>Eintracht Duo</h1>
     </div>
     <div class="table-wrap">
         <table>
-            <caption><h1>Contestants</h1></caption>
+            <caption><h1>-Teilnehmer</h1></caption>
             <tr>
-                <th>Last name</th>
-                <th>First name</th>
-                <th>Contest</th>
+                <th>Nachname</th>
+                <th>Vorname</th>
+                <th>Wettbewerb</th>
             </tr>
             {% for row in contestants %}
             <tr>
