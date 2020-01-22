@@ -1,3 +1,4 @@
+#!/bin/python3
 from flask import Flask,render_template,flash, redirect,url_for,session,logging,request
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Message, Mail
@@ -39,23 +40,27 @@ def register():
         email = request.form['email']
         token = s.dumps(email, salt='email-confirm')
         validation = validate_email(email, check_mx=True, debug=True)
-        
+
+        if validation == False:
+            return '''<h1 style="text-align: center;">Email ist ungültig</h1>
+                      <script>window.setTimeout(function(){window.history.back();}, 3000);</script>'''
+
+        if bool(Contestant.query.filter_by(email=email).first()): 
+            return '''<h1 style="text-align: center;">Email bereits angemeldet</h1>
+                      <script>window.setTimeout(function(){window.history.back();}, 3000);</script>'''
+
         new_contestant = Contestant(first_name = request.form['firstname'], last_name = request.form['lastname'], 
         email = request.form['email'], telephone = request.form['telephone'],
         year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
         gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
 
-        msg = Message('Email confirmation', sender='', recipients=[email])
+        msg = Message('Email confirmation', sender='Eintracht Duo <torsten@glunde.de>', recipients=[email])
         link = url_for('confirm_email', token=token, _external=True)
         msg.body = 'Please confirm your registration on this link: {}'.format(link)
 
-        if validation == True:
-            mail.send(msg)
-            db.session.add(new_contestant)
-            db.session.commit()
-        else:
-            return '''<h1 style="text-align: center;">Email is invalid</h1>
-                      <script>window.setTimeout(function(){window.history.back();}, 3000);</script>'''
+        mail.send(msg)
+        db.session.add(new_contestant)
+        db.session.commit()
 
         return redirect(url_for("send_email"))
     return render_template("signup.html")
@@ -88,4 +93,4 @@ def send_email():
 
 if __name__ == "__main__":
     db.create_all()
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=80)
