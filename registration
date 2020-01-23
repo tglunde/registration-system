@@ -90,6 +90,9 @@ def confirmation():
 def send_email():
     return render_template("email_sent.html")
 
+@app.route('/infos')
+def infos():
+    return render_template("infos.html")
 
 if __name__ == "__main__":
     db.create_all()
