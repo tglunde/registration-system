@@ -2,6 +2,7 @@ body{
     background-image: url("background.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center 110px;
 }
 .headliner{
     height: 85px;
@@ -20,7 +21,7 @@ body{
     box-sizing: border-box;
     padding: 40px;
     color: #FFF;
-    margin-top: 100px;
+    margin-top: 23%;
 }
 h2{
     text-align: center;
@@ -102,7 +103,18 @@ th, td{
     padding: 10px 0px;
 }
 
-.pdf-wrap {
+.signup-wrap {
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #FFF;
+    margin-top: 100px;
+}
+
+.info-wrap {
     max-width: 900px;
     border-radius: 20px;
     margin: auto;
