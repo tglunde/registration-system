@@ -54,7 +54,7 @@ def register():
         year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
         gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
 
-        msg = Message('Email confirmation', sender='Eintracht Duo <torsten@glunde.de>', recipients=[email])
+        msg = Message('Email confirmation', sender='swimandrun-hannover@gmx.de', recipients=[email])
         link = url_for('confirm_email', token=token, _external=True)
         msg.body = 'Please confirm your registration on this link: {}'.format(link)
 
