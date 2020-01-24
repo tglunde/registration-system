@@ -51,7 +51,8 @@ def register():
 
         new_contestant = Contestant(first_name = request.form['firstname'], last_name = request.form['lastname'], 
         email = request.form['email'], telephone = request.form['telephone'],
-        year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
+        year_of_birth = request.form['yob'], contest = "Eintracht", #request.form['contest'], 
+    	confirmation=token,
         gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
 
         msg = Message('Email confirmation', sender='swimandrun-hannover@gmx.de', recipients=[email])

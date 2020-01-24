@@ -17,13 +17,13 @@
             <tr>
                 <th>Nachname</th>
                 <th>Vorname</th>
-                <th>Wettbewerb</th>
+                <th>Verein</th>
             </tr>
             {% for row in contestants %}
             <tr>
                 <td>{{row.last_name}}</td>
                 <td>{{row.first_name}}</td>
-                <td>{{row.contest}}</td>
+                <td>{{row.club}}</td>
             </tr>
             {% endfor %}
           </table>
