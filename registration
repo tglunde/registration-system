@@ -51,10 +51,11 @@ def register():
 
         new_contestant = Contestant(first_name = request.form['firstname'], last_name = request.form['lastname'], 
         email = request.form['email'], telephone = request.form['telephone'],
-        year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
+        year_of_birth = request.form['yob'], contest = "Eintracht", #request.form['contest'], 
+    	confirmation=token,
         gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
 
-        msg = Message('Email confirmation', sender='Eintracht Duo <torsten@glunde.de>', recipients=[email])
+        msg = Message('Email confirmation', sender='swimandrun-hannover@gmx.de', recipients=[email])
         link = url_for('confirm_email', token=token, _external=True)
         msg.body = 'Please confirm your registration on this link: {}'.format(link)
 
@@ -90,6 +91,9 @@ def confirmation():
 def send_email():
     return render_template("email_sent.html")
 
+@app.route('/infos')
+def infos():
+    return render_template("infos.html")
 
 if __name__ == "__main__":
     db.create_all()

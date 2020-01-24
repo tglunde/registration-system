@@ -1,9 +1,11 @@
 body{
-    background-image: url("https://otilloswimrun.com/wp-content/uploads/2016/01/raceImg-OTILLO-Main-OTILLO15.jpg");
-    background-position: center;
+    background-image: url("background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 110px;
 }
 .headliner{
-    height: 70px;
+    height: 85px;
     background-color: rgba(0,0,0,0.8);
     margin: 0;
     text-align: center;
@@ -19,7 +21,7 @@ body{
     box-sizing: border-box;
     padding: 40px;
     color: #FFF;
-    margin-top: 100px;
+    margin-top: 23%;
 }
 h2{
     text-align: center;
@@ -99,4 +101,54 @@ table, th, td{
 }
 th, td{
     padding: 10px 0px;
+}
+
+.signup-wrap {
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #FFF;
+    margin-top: 100px;
+}
+
+.info-wrap {
+    max-width: 900px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #FFF;
+    margin-top: 100px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+a {
+   color: white;
 }

@@ -8,21 +8,22 @@
 <body>
     <div class="headliner">
         <button class="home-btn" onclick="window.location.href = '/';">Startseite</button>
-        <h1>Eintracht Duo</h1>
+        <h1>Eintracht's Duo: 2. offene Vereinsmeisterschaft</h1>
+	<h3>500m Schwimmen + 5km Laufen (Jagdstart)</h3>
     </div>
     <div class="table-wrap">
         <table>
-            <caption><h1>-Teilnehmer</h1></caption>
+            <caption><h1>Teilnehmer</h1></caption>
             <tr>
                 <th>Nachname</th>
                 <th>Vorname</th>
-                <th>Wettbewerb</th>
+                <th>Verein</th>
             </tr>
             {% for row in contestants %}
             <tr>
                 <td>{{row.last_name}}</td>
                 <td>{{row.first_name}}</td>
-                <td>{{row.contest}}</td>
+                <td>{{row.club}}</td>
             </tr>
             {% endfor %}
           </table>
