@@ -25,7 +25,12 @@
                     <input type="text"  name="lastname" placeholder="Nachname" required/>
                 </div>
                 <div class="required">
-                    <input type="number" name="yob" placeholder="Geburtsjahr" required/>
+                    <input type="number" class="yob" name="yob" placeholder="Geburtsjahr" required/>
+                </div>
+                <div class="polje" style="padding: 0; border-bottom: none;">
+                    <h3>Schwimmzeit</h3>
+                    <input type="number" class="minsec" min="05" max="12" name="minutes" placeholder="Minuten" />
+                    <input type="number" class="minsec" min="0" max="60" name="seconds" placeholder="Sekunden" />
                 </div>
                 <div class="required">
                     <input type="email"  name="email" placeholder="Email" required/>
@@ -39,10 +44,11 @@
                 <input type="radio" name="contest" value="Eintracht Duo" required/>Eintracht Duo
                 <input type="radio" name="contest" value="Eintracht Duo Relay" required/>Eintracht Duo Staffel
                 -->
-		<div class="required">
+		<div class="required tooltip">
                     <hr>
-                    <input type="checkbox" name="agreed" required/>Ich habe die Angaben zum Datenschutz gelesen und erkenne sie an
-                </div>
+                    <input type="checkbox" name="agreed" required/>Ich habe die Angaben zum Datenschutz, Haftungsauschluss gelesen, erkenne sie an und werde die Startgebühr von 3,-EUR am Wettkampftag entrichten.
+			  <span class="tooltiptext"><a href="http://ec2-3-125-149-53.eu-central-1.compute.amazonaws.com/infos">Teilnahmebedingungen</a></span>
+		</div>
                 <input type="submit" value="Anmelden">
             </form>
         </div>    

@@ -12,7 +12,11 @@
         </div>
 
         <div class="wrap">
-            <button class="btn" type="button" onclick="window.location.href = '/register';">Anmeldung</button>
+            {% if nor <=80 %}
+                <button class="btn" type="button" onclick="window.location.href = '/register';">Anmeldung</button>
+            {% else %}
+                <button style="background-color: dimgrey;" class="btn" type="button" onclick="alert('Es tut uns sehr leid, aber alle Teilnehmen Plätze sind besetzt.');">Anmeldung</button>
+            {% endif %}
             <button class="btn" type="button" onclick="window.location.href = '/dashboard';">Teilnehmerliste</button>
             <button class="btn" type="button" onclick="window.location.href = '/infos';">Infos</button>
         </div>

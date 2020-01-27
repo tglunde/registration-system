@@ -29,10 +29,12 @@ class Contestant(db.Model):
     time = db.Column(db.DateTime(), default=datetime.datetime.now())
     active = db.Column(db.Boolean(), default=False)
     ip = db.Column(db.String(16))
+    est_swim_time = db.Column(db.String(5))
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    nor = len(Contestant.query.filter_by(active=True).all())
+    return render_template("index.html", nor=nor)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -51,8 +53,10 @@ def register():
 
         new_contestant = Contestant(first_name = request.form['firstname'], last_name = request.form['lastname'], 
         email = request.form['email'], telephone = request.form['telephone'],
-        year_of_birth = request.form['yob'], contest = request.form['contest'], confirmation=token,
-        gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'])
+        year_of_birth = request.form['yob'], contest = "Eintracht", #request.form['contest'], 
+    	confirmation=token,
+        gender = request.form['gender'],club = request.form['club'], ip = request.environ['REMOTE_ADDR'],
+        est_swim_time="{:02d}:{:02d}".format(int(request.form['minutes']), int(request.form['seconds'])))
 
         msg = Message('Email confirmation', sender='swimandrun-hannover@gmx.de', recipients=[email])
         link = url_for('confirm_email', token=token, _external=True)
@@ -68,7 +72,7 @@ def register():
 @app.route('/dashboard', methods=['GET', 'POST'])
 def list_all():
     query = db.session.query_property()
-    contestants = Contestant.query.filter_by(active=True).all()
+    contestants = Contestant.query.filter_by(active=True).order_by(Contestant.last_name).all()
     return render_template("dashboard.html", contestants=contestants)
 
 @app.route('/confirm_email/<token>')

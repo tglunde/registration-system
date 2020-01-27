@@ -26,9 +26,23 @@ body{
 h2{
     text-align: center;
 }
-input[type=text], input[type=password], input[type=number], input[type=email]{
+input[type=text], input[type=password], .yob, input[type=email], .polje{
     width: 90%;
     box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted wheat;
+    border-radius: 7px;
+    margin: 3px;
+    font-weight: bold;
+    color: #FFF;
+}
+.minsec{
+    width: 45%;
+    box-sizing: border-box;
+    float:right
     padding: 12px 5px;
     background: rgba(0,0,0,0.10);
     outline: none;
@@ -125,3 +139,30 @@ th, td{
     margin-top: 100px;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+a {
+   color: white;
+}
